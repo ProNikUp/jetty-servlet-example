@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jetty-servlet.iml" filepath="$PROJECT_DIR$/.idea/modules/jetty-servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jetty-servlet_main.iml" filepath="$PROJECT_DIR$/.idea/modules/jetty-servlet_main.iml" group="jetty-servlet" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jetty-servlet_test.iml" filepath="$PROJECT_DIR$/.idea/modules/jetty-servlet_test.iml" group="jetty-servlet" />
+    </modules>
+  </component>
+</project>
