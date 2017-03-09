@@ -2,6 +2,7 @@ group 'edu.androidclub'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'war'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -9,29 +10,6 @@ targetCompatibility = 1.7
 repositories {
     mavenCentral()
 }
-
-task fatJar(type: Jar) {
-    manifest {
-        attributes 'Implementation-Title': 'Android Club servlet test',
-                'Implementation-Version': version,
-                'Main-Class': 'edu.androidclub.servletexample.WebApplication'
-    }
-    baseName = project.name + '-all'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-}
-
-task runJar(dependsOn: jar) << {
-    javaexec {
-        main="-jar";
-        args = [
-                "build/libs/jetty-servlet-all-1.0-SNAPSHOT.jar"
-        ]
-    }
-}
-
-build.dependsOn.add('fatJar')
-runJar.dependsOn.add('fatJar')
 
 dependencies {
     compile 'javax.servlet:javax.servlet-api:3.1.0'
