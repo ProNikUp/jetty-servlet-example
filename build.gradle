@@ -1,7 +1,18 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+
 group 'edu.androidclub'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -10,31 +21,11 @@ repositories {
     mavenCentral()
 }
 
-task fatJar(type: Jar) {
-    manifest {
-        attributes 'Implementation-Title': 'Android Club Servlet Example 1',
-                'Implementation-Version': version,
-                'Main-Class': 'edu.androidclub.servletexample1.Application'
-    }
-    baseName = project.name + '-all'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
+gretty {
+    httpPort = 8080
+    contextPath = '/'
 }
-
-task runJar(dependsOn: jar) << {
-    javaexec {
-        main="-jar";
-        args = [
-                "build/libs/servlet-example-1-all-1.0-SNAPSHOT.jar"
-        ]
-    }
-}
-
-build.dependsOn.add('fatJar')
-runJar.dependsOn.add('fatJar')
 
 dependencies {
     compile 'javax.servlet:javax.servlet-api:3.1.0'
-    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.3.7.v20160115'
-    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.3.7.v20160115'
 }

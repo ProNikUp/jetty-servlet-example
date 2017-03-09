@@ -20,7 +20,7 @@ public class TestServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final String val = req.getParameter(VAL_NAME);
         PrintWriter responseWriter = resp.getWriter();
-        responseWriter.append("Input val parameter value = " + val);
+        responseWriter.append("Input val parameter value = " + val).append("\n");
         responseWriter.append("Stopping method");
         responseWriter.flush();
     }
