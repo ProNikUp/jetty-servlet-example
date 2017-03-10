@@ -15,7 +15,7 @@ public class App extends Application {
 
     public App() {
         classes.add(JacksonJaxbJsonProvider.class);
-        singletones.add(new TestResource());
+        classes.add(TestResource.class);
     }
 
     @Override
