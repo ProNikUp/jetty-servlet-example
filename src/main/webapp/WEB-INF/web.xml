@@ -6,13 +6,17 @@
         metadata-complete="false"
         version="3.1">
 
+    <display-name>Servlet Example</display-name>
+
     <servlet>
-        <servlet-name>TestServlet</servlet-name>
-        <servlet-class>edu.androidclub.servletexample1.TestServlet</servlet-class>
+        <servlet-name>Servlet Example</servlet-name>
+        <init-param>
+            <param-name>javax.ws.rs.core.Application</param-name>
+            <param-value>edu.androidclub.servletexample1.App</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
-        <servlet-name>TestServlet</servlet-name>
-        <url-pattern>/test/*</url-pattern>
+        <servlet-name>Servlet Example</servlet-name>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
-
 </web-app>
